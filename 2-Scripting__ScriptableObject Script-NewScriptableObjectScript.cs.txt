@@ -1,0 +1,22 @@
+using UnityEngine;
+
+namespace Your.NameSpace
+{
+    #ROOTNAMESPACEBEGIN#
+	[CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "Scriptable Objects/#SCRIPTNAME#")]
+	public class #SCRIPTNAME# : ScriptableObject
+	{
+        #region Varialbes
+
+        
+
+        #endregion Varialbes
+
+        #region Help Methods
+
+        
+
+        #endregion Help Methods
+	}
+	#ROOTNAMESPACEEND#
+}

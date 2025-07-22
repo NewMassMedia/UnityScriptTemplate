@@ -1,0 +1,29 @@
+using UnityEngine;
+
+namespace Your.NameSpace
+{
+    #ROOTNAMESPACEBEGIN#
+	public class #SCRIPTNAME# 
+	{
+        #region Varialbes
+
+        
+
+        #endregion Varialbes
+
+        #region Constructor
+
+        public #SCRIPTNAME#()
+	{
+	} 
+
+        #endregion Constructor
+
+        #region Help Methods
+
+        
+
+        #endregion Help Methods
+	}
+	#ROOTNAMESPACEEND#
+}

@@ -1,0 +1,27 @@
+using UnityEngine;
+
+namespace Your.NameSpace
+{
+    #ROOTNAMESPACEBEGIN#
+	public class #SCRIPTNAME# : MonoBehaviour
+	{
+        #region Varialbes
+
+        
+
+        #endregion Varialbes
+
+        #region Unity Methods
+
+        
+
+        #endregion Unity Methods
+
+        #region Help Methods
+
+        
+
+        #endregion Help Methods
+	}
+	#ROOTNAMESPACEEND#
+}
