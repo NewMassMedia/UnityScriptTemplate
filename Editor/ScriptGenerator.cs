@@ -5,7 +5,7 @@ public static class ScriptGenerator
 {
     #region Create Script
 
-    private static readonly string s_scriptTemplatePath = EditorApplication.applicationContentsPath + "Resources/ScriptTemplates";
+    private static readonly string s_scriptTemplatePath = EditorApplication.applicationContentsPath + "/Resources/ScriptTemplates";
     private const string SCRIPT_MENU_PATH = "Assets/Script/";
     private const string MONO_BEHAVIOUR = "MonoBehaviour";
     private const string CLASS = "Class";
@@ -53,19 +53,19 @@ public static class ScriptGenerator
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + CLASS, priority = MenuPriority.CLASS)]
     private static void CreateClassScript()
-        => CreateScriptFromTemplate(CLASS, CLASS);
+        => CreateScriptFromTemplate(ScriptFile(CLASS), CLASS);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + INTERFACE, priority = MenuPriority.INTERFACE)]
     private static void CreateInterfaceScript()
-        => CreateScriptFromTemplate(INTERFACE, INTERFACE);
+        => CreateScriptFromTemplate(ScriptFile(INTERFACE), INTERFACE);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + SCRIPTABLE_OBJECT, priority = MenuPriority.SCRIPTABLE_OBJECT)]
     private static void CreateScriptableObjectScript()
-        => CreateScriptFromTemplate(SCRIPTABLE_OBJECT, SCRIPTABLE_OBJECT);
+        => CreateScriptFromTemplate(ScriptFile(SCRIPTABLE_OBJECT), SCRIPTABLE_OBJECT);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + STRUCT, priority = MenuPriority.STRUCT)]
     private static void CreateStructScript()
-        => CreateScriptFromTemplate(STRUCT, STRUCT);
+        => CreateScriptFromTemplate(ScriptFile(STRUCT), STRUCT);
 
     #endregion Create Script
 }
