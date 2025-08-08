@@ -1,11 +1,11 @@
 using UnityEditor;
 using System.IO;
+using System.Linq;
 
 public static class ScriptGenerator
 {
     #region Create Script
-
-    private static readonly string s_scriptTemplatePath = EditorApplication.applicationContentsPath + "/Resources/ScriptTemplates";
+    
     private const string SCRIPT_MENU_PATH = "Assets/Script/";
     private const string MONO_BEHAVIOUR = "MonoBehaviour";
     private const string CLASS = "Class";
@@ -23,7 +23,22 @@ public static class ScriptGenerator
         public const int SCRIPTABLE_OBJECT = SCRIPT_MENU_PRIORITY + 4;
         public const int STRUCT = SCRIPT_MENU_PRIORITY + 5;
     }
-
+    
+    private static string GetScriptPath(string className)
+    {
+        var guids = AssetDatabase.FindAssets(className + " t:script");
+        return guids.Length == 0 ? null : AssetDatabase.GUIDToAssetPath(guids.First());
+    }
+    
+    private static string GetScriptDirectory(string name)
+    {
+        var path = GetScriptPath(name);
+        return Path.GetDirectoryName(path);
+    }
+    
+    private static string ToTextFileName(string name) => $"{name}.txt";
+    private static string ToNewFileName(string name) => $"New{name}.cs";
+    
     private static void CreateScriptFromTemplate(string templateName, string defaultFileName)
     {
         var selectedPath = "Assets";
@@ -37,35 +52,34 @@ public static class ScriptGenerator
             }
         }
 
-        var templatePath = Path.Combine(s_scriptTemplatePath, templateName);
+        var templateDir = GetScriptDirectory(nameof(ScriptGenerator));
+        var templatePath = Path.Combine(templateDir, templateName);
 
         ProjectWindowUtil.CreateScriptAssetFromTemplateFile(
-            templatePath,
-            Path.Combine(selectedPath, $"New{defaultFileName}.cs")
+            templatePath, Path.Combine(selectedPath, ToNewFileName(defaultFileName))
         );
     }
 
-    private static string ScriptFile(string name) => $"{name}.txt";
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + MONO_BEHAVIOUR, priority = MenuPriority.MONO_BEHAVIOUR)]
     private static void CreateMonoBehaviourScript()
-        => CreateScriptFromTemplate(ScriptFile(MONO_BEHAVIOUR), MONO_BEHAVIOUR);
+        => CreateScriptFromTemplate(ToTextFileName(MONO_BEHAVIOUR), MONO_BEHAVIOUR);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + CLASS, priority = MenuPriority.CLASS)]
     private static void CreateClassScript()
-        => CreateScriptFromTemplate(ScriptFile(CLASS), CLASS);
+        => CreateScriptFromTemplate(ToTextFileName(CLASS), CLASS);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + INTERFACE, priority = MenuPriority.INTERFACE)]
     private static void CreateInterfaceScript()
-        => CreateScriptFromTemplate(ScriptFile(INTERFACE), INTERFACE);
+        => CreateScriptFromTemplate(ToTextFileName(INTERFACE), INTERFACE);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + SCRIPTABLE_OBJECT, priority = MenuPriority.SCRIPTABLE_OBJECT)]
     private static void CreateScriptableObjectScript()
-        => CreateScriptFromTemplate(ScriptFile(SCRIPTABLE_OBJECT), SCRIPTABLE_OBJECT);
+        => CreateScriptFromTemplate(ToTextFileName(SCRIPTABLE_OBJECT), SCRIPTABLE_OBJECT);
 
     [MenuItem(itemName: SCRIPT_MENU_PATH + STRUCT, priority = MenuPriority.STRUCT)]
     private static void CreateStructScript()
-        => CreateScriptFromTemplate(ScriptFile(STRUCT), STRUCT);
+        => CreateScriptFromTemplate(ToTextFileName(STRUCT), STRUCT);
 
     #endregion Create Script
 }
