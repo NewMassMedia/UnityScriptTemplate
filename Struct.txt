@@ -3,11 +3,11 @@ namespace Your.NameSpace
     #ROOTNAMESPACEBEGIN#
 	public struct #SCRIPTNAME# 
 	{
-        #region Varialbes
+        #region Variables
 
         
 
-        #endregion Varialbes
+        #endregion Variables
 
         #region Constructor
 

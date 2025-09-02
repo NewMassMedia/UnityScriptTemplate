@@ -1,0 +1,39 @@
+using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.RenderGraphModule;
+using UnityEngine.Rendering.Universal;
+
+namespace Your.NameSpace
+{
+    public partial class #SCRIPTNAME#
+    {
+        public class Pass : ScriptableRenderPass
+        {
+            #region Variables
+    
+            private readonly Setting _setting;
+            private readonly Material _material;
+    
+            #endregion Variables
+    
+            #region Constructor
+    
+            public Pass(Material material, Setting defaultSetting)
+            {
+                _material = material;
+                _setting = defaultSetting;
+            }
+    
+            #endregion Constructor
+    
+            #region Help Methods
+    
+            public override void RecordRenderGraph(RenderGraph renderGraph, ContextContainer frameData)
+            {
+            
+            }
+    
+            #endregion Help Methods
+        }
+    }
+}

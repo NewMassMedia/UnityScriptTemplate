@@ -6,11 +6,11 @@ namespace Your.NameSpace
 	[CreateAssetMenu(fileName = "#SCRIPTNAME#", menuName = "Scriptable Objects/#SCRIPTNAME#")]
 	public class #SCRIPTNAME# : ScriptableObject
 	{
-        #region Varialbes
+        #region Variables
 
         
 
-        #endregion Varialbes
+        #endregion Variables
 
         #region Help Methods
 

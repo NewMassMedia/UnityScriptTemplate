@@ -1,0 +1,61 @@
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+
+namespace Your.NameSpace
+{
+	public partial class #SCRIPTNAME# : ScriptableRendererFeature
+	{
+        #region Variables
+
+        [SerializeField] private Setting _setting;
+        [SerializeField] private Shader _shader;
+        
+        private Material _material;
+        private Pass _pass;
+
+        #endregion Variables
+
+        #region Help Methods
+
+        protected override void Dispose(bool disposing)
+        {
+            if (Application.isPlaying)
+            {
+                Destroy(_material);
+            }
+            else
+            {
+                DestroyImmediate(_material);
+            }
+        }
+
+        public override void Create()
+        {
+            if (_shader == null)
+            {
+                return;
+            }
+
+            _material = new Material(_shader);
+            _pass = new Pass(_material, _setting)
+            {
+                renderPassEvent = RenderPassEvent.AfterRenderingSkybox
+            };
+        }
+
+        public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
+        {
+            if (_pass == null)
+            {
+                return;
+            }
+
+            if (renderingData.cameraData.cameraType == CameraType.Game)
+            {
+                renderer.EnqueuePass(_pass);
+            }
+        }
+        
+        #endregion Help Methods
+	}
+}

@@ -3,11 +3,11 @@ namespace Your.NameSpace
     #ROOTNAMESPACEBEGIN#
 	public class #SCRIPTNAME# 
 	{
-        #region Varialbes
+        #region Variables
 
         
 
-        #endregion Varialbes
+        #endregion Variables
 
         #region Constructor
 

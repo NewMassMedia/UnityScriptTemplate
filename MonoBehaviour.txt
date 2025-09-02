@@ -5,11 +5,11 @@ namespace Your.NameSpace
     #ROOTNAMESPACEBEGIN#
 	public class #SCRIPTNAME# : MonoBehaviour
 	{
-        #region Varialbes
+        #region Variables
 
         
 
-        #endregion Varialbes
+        #endregion Variables
 
         #region Unity Methods
 

@@ -1,0 +1,13 @@
+using System;
+
+namespace Your.NameSpace
+{
+    public partial class #SCRIPTNAME#
+    {
+        [Serializable]
+        public class Setting
+        {
+            
+        }
+    }
+}
