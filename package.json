@@ -5,7 +5,15 @@
   "unity": "2021.3",
   "description": "Custom Unity script templates (Class, MonoBehaviour, Interface, etc.) and ScriptGenerator.",
   "license": "MIT",
-  "author": { "name": "NewMassMedia", "url": "https://github.com/NewMassMedia/UnityScriptTemplate" },
-  "keywords": ["unity", "script-template", "generator"],
-  "dependencies": {}
+  "author": {
+    "name": "NewMassMedia",
+    "url": "https://github.com/NewMassMedia/UnityScriptTemplate"
+  },
+  "keywords": [
+    "unity",
+    "script-template",
+    "generator"
+  ],
+  "dependencies": {},
+  "_fingerprint": "6cc80b0017127e019661cc10f87095e14da735e7"
 }
