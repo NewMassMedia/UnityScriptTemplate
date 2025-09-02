@@ -1,0 +1,11 @@
+{
+  "name": "com.newmassmedia.unity-script-template",
+  "displayName": "Unity Script Template",
+  "version": "1.0.0",
+  "unity": "2021.3",
+  "description": "Custom Unity script templates (Class, MonoBehaviour, Interface, etc.) and ScriptGenerator.",
+  "license": "MIT",
+  "author": { "name": "NewMassMedia", "url": "https://github.com/NewMassMedia/UnityScriptTemplate" },
+  "keywords": ["unity", "script-template", "generator"],
+  "dependencies": {}
+}
